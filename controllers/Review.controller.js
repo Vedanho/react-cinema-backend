@@ -1,20 +1,20 @@
-const Review = require("../Models/Review.model");
+const Review = require("../models/Review.model")
 
 module.exports.reviewsController = {
   getAllReviews: async (req, res) => {
-    const allReviev = await Review.find();
-    res.json(allReviev);
+    const allReviev = await Review.find()
+    res.json(allReviev)
   },
 
   postReview: async (req, res) => {
     try {
       const review = await Review.create({
         text: req.body.text,
-      });
+      })
 
-      return res.json(review);
+      return res.json(review)
     } catch (e) {
-      res.json(e.message);
+      res.json(e.message)
     }
   },
 
@@ -27,19 +27,19 @@ module.exports.reviewsController = {
         },
 
         { new: true }
-      );
-      res.json(review);
+      )
+      res.json(review)
     } catch (e) {
-      res.status(401).json(e.message);
+      res.status(401).json(e.message)
     }
   },
 
   delReviewById: async (req, res) => {
     try {
-      const review = await Review.findByIdAndRemove(req.params.id);
-      res.json("Ваш отзыв удален");
+      const review = await Review.findByIdAndRemove(req.params.id)
+      res.json("Ваш отзыв удален")
     } catch (e) {
-      res.json("hello" + e.message);
+      res.json("hello" + e.message)
     }
   },
-};
+}
