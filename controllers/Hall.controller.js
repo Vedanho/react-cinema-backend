@@ -21,7 +21,7 @@ module.exports.hallController = {
     }
   },
 
-  removeHallById: async (req, res) => {
+  deleteHallById: async (req, res) => {
     const { id } = req.params
 
     try {
