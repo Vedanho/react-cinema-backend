@@ -7,7 +7,10 @@ const movieSchema = mongoose.Schema({
   limitation: Number,
   country: String, 
   img: String,
-  rating: Number,
+  rating: {
+    type: Number,
+    default: 0
+  },
   genre: [{
     ref: "Genre",
     type: mongoose.SchemaTypes.ObjectId,

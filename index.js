@@ -11,9 +11,9 @@ app.use(cors())
 
 app.use(require("./routes/User.route"))
 app.use(require("./routes/Genre.route"))
-app.use(require("./routes/Hall.route"))
+// app.use(require("./routes/Hall.route"))
 app.use(require("./routes/Movie.route"))
-app.use(require("./routes/Review.route"))
+// app.use(require("./routes/Review.route"))
 
 mongoose
   .connect(process.env.MONGO_SERVER)
