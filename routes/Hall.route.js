@@ -3,9 +3,9 @@ const { hallController } = require("../controllers/Hall.controller")
 
 const router = Router()
 
-router.post("/movie", hallController.postHall)
-router.get("/movie", hallController.getHall)
-router.patch("/movie/:id", hallController.patchHallById)
-router.delete("/movie/:id", hallController.deleteHallById)
+router.post("/hall", hallController.postHall)
+router.get("/hall", hallController.getHall)
+router.patch("/hall/:id", hallController.patchHallById)
+router.delete("/hall/:id", hallController.deleteHallById)
 
 module.exports = router
