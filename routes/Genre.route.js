@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const { genreControllers } = require("../controllers/Genre.controller");
 
-
 const router = Router();
 
 router.post("/genre", genreControllers.createGenre);
