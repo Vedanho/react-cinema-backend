@@ -36,11 +36,12 @@ module.exports.seatController = {
   },
 
   patchSeat: async (req, res) => {
-    const { taken } = req.body
+    const { row,col } = req.body
 
     try {
       const seat = await Seat.findByIdAndUpdate(req.params.id, {
-        taken,
+        row,
+        col
       })
       res.json(seat)
     } catch (e) {
