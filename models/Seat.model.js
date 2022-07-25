@@ -1,14 +1,8 @@
 const mongoose = require("mongoose")
 
 const seatSchema = mongoose.Schema({
-  hall: {
-    ref: "Hall",
-    type: mongoose.SchemaTypes.ObjectId,
-  },
-  taken: {
-    type: Boolean,
-    default: false,
-  },
+  row: Number,
+  col: Number,
 })
 
 const Seat = mongoose.model("Seat", seatSchema)
