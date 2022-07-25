@@ -13,6 +13,7 @@ app.use(require("./routes/User.route"))
 app.use(require("./routes/Genre.route"))
 app.use(require("./routes/Hall.route"))
 app.use(require("./routes/Movie.route"))
+
 app.use(require("./routes/Review.route"))
 app.use(require("./routes/Seat.route"))
 
