@@ -3,7 +3,7 @@ const { bookController } = require("../controllers/Book.controller")
 
 const router = Router()
 
-router.post("/book", bookController.postBook)
+router.post("/book/:id", bookController.postBook)
 router.get("/book", bookController.getBook)
 router.patch("/book/:id", bookController.patchBook)
 router.delete("/book/:id", bookController.deleteBook)
