@@ -13,7 +13,13 @@ module.exports.hallController = {
 
   postHall: async (req, res) => {
     try {
-      const hall = await Hall.create(req.body)
+      const { name, row, column} = req.body
+      const hall = await Hall.create({
+        name, 
+        row,
+        column,
+        seats: row * column
+      })
 
       res.json(hall)
     } catch (e) {
