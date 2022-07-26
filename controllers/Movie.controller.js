@@ -11,7 +11,7 @@ module.exports.movieControllers = {
         length,
         limitation,
         country,
-        img: req.file,
+        img: req.file.path,
         rating,
         genre,
       })
