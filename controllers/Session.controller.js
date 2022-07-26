@@ -1,9 +1,11 @@
+
 const Hall = require("../models/Hall.model");
 const Session = require("../models/Session.model");
 
 module.exports.sessionController = {
   getSession: async (req, res) => {
     try {
+
       const session = await Session.find();
 
       res.json(session);
@@ -14,13 +16,15 @@ module.exports.sessionController = {
 
   postSession: async (req, res) => {
     try {
-      const { time, movie } = req.body;
+      const { time, movie, hall } = req.body
 
-      const { row, column } = await Hall.findById(req.params.id);
+      const { row, column } = await Hall.findById(req.params.id)
+
 
       const session = await Session.create({
         time,
         movie,
+
         hall: req.params.id,
         seats: row * column,
         row,
