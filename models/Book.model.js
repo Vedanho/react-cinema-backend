@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
 const bookSchema = mongoose.Schema({
-  row: Number,
-  col: Number,
   user: {
     ref: "User",
     type: mongoose.SchemaTypes.ObjectId,
@@ -11,6 +9,8 @@ const bookSchema = mongoose.Schema({
     ref: "Session",
     type: mongoose.SchemaTypes.ObjectId,
   },
+  row: Number,
+  column: Number
 });
 
 const Book = mongoose.model("Book", bookSchema);
