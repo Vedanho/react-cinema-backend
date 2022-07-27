@@ -10,6 +10,7 @@ const path = require("path");
 app.use(express.json());
 app.use(cors());
 
+app.use(require("./routes/Cinema.route"));
 app.use(require("./routes/User.route"));
 app.use(require("./routes/Genre.route"));
 app.use(require("./routes/Hall.route"));
