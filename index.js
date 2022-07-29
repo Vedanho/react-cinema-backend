@@ -1,6 +1,19 @@
 const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
+
+const app = express();
+const cookieParser = require("cookie-parser");
+require("dotenv").config();
+const errorMiddlewares = require("./middlewares/error-middlewares");
+
+app.use(express.json());
+app.use(cors());
+app.use(cookieParser());
+
+app.use(require("./routes/User.route"));
+app.use(errorMiddlewares);
+
 const bodyParser = require("body-parser");
 
 const mail = require("./mail.js");
@@ -26,14 +39,12 @@ app.post("/mail", async (req, res) => {
 
   return res.json("отправлено");
 });
-//--------------------------
 
 app.use(require("./routes/User.route"));
 app.use(require("./routes/Genre.route"));
 app.use(require("./routes/Hall.route"));
 app.use(require("./routes/Movie.route"));
 app.use(require("./routes/Review.route"));
-=======
 const app = express();
 const multer = require("multer")
 require("dotenv").config();
