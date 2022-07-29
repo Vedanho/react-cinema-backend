@@ -18,5 +18,15 @@ router.post("/login", userController.login);
 router.get("/activated/:link", userController.activateController);
 router.get("/refresh", userController.refresh);
 router.get("/getUsers", authMiddleware, userController.getUsers);
+=======
+const { Router } = require("express");
+const { reviewsController } = require("../controllers/review.controller");
+
+const router = Router();
+
+router.get("/reviews", reviewsController.getAllReviews);
+router.post("/review", reviewsController.postReview);
+router.patch("/review/:id", reviewsController.patchReviewById);
+router.delete("/review/:id", reviewsController.delReviewById);
 
 module.exports = router;

@@ -1,38 +1,42 @@
-const Movie = require("../models/Movie.model");
+const Movie = require("../models/Movie.model")
 
 module.exports.movieControllers = {
   createMovie: async (req, res) => {
     try {
-      const { name, description, rating, genre } = req.body;
+      const { name, description, rating, genre,length,limitation,country } = req.body;
+
       const movie = await Movie.create({
         name,
         description,
-        img: req.file,
+        length,
+        limitation,
+        country,
+        img: req.file.path,
         rating,
         genre,
-      });
+      })
 
-      return res.json(movie);
+      return res.json(movie)
     } catch (error) {
-      return res.status(401).json(error.message);
+      return res.status(401).json(error.message)
     }
   },
   getMovies: async (req, res) => {
     try {
-      const movies = await Movie.find();
-
-      return res.json(movies);
+      const movies = await Movie.find()
+      console.log(movies)
+      return res.json(movies)
     } catch (error) {
-      return res.status(401).json(error.message);
+      return res.status(401).json(error.message)
     }
   },
   getMoviesByGenre: async (req, res) => {
     try {
-      const movies = await Movie.find({ genre: req.params.id });
+      const movies = await Movie.find({ genre: req.params.id })
 
-      return res.json(movies);
+      return res.json(movies)
     } catch (error) {
-      return res.status(401).json(error.message);
+      return res.status(401).json(error.message)
     }
   },
   updateMovie: async (req, res) => {
@@ -41,20 +45,20 @@ module.exports.movieControllers = {
         name: req.body.name,
         text: req.body.text,
         description: req.body.description,
-      });
+      })
 
-      return res.json(newMovie);
+      return res.json(newMovie)
     } catch (error) {
-      return res.status(401).json(error.message);
+      return res.status(401).json(error.message)
     }
   },
   deleteMovie: async (req, res) => {
     try {
-      await Movie.findByIdAndRemove(req.params.id);
+      await Movie.findByIdAndRemove(req.params.id)
 
-      return res.json("Фильм удалён");
+      return res.json("Фильм удалён")
     } catch (error) {
-      return res.status(401).json(error.message);
+      return res.status(401).json(error.message)
     }
   },
-};
+}
