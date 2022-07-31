@@ -1,3 +1,4 @@
+
 const cors = require("cors")
 const express = require("express")
 const mongoose = require("mongoose")
@@ -39,6 +40,8 @@ app.use(require("./routes/Hall.route"))
 app.use(require("./routes/Movie.route"))
 app.use(require("./routes/Book.route"))
 app.use(require("./routes/Session.route"))
+app.use(require("./routes/Seat.route"))
+
 // app.use(require("./routes/Review.route"))
 app.use(errorMiddlewares)
 

@@ -10,9 +10,7 @@ const sessionSchema = mongoose.Schema({
   hall: {
     ref: "Hall",
     type: mongoose.SchemaTypes.ObjectId,
-  },
-  row: Number,
-  column: Number
+  }
 });
 
 const Session = mongoose.model("Session", sessionSchema)

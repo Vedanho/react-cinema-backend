@@ -3,12 +3,22 @@ const Hall = require("../models/Hall.model");
 const Session = require("../models/Session.model");
 
 module.exports.sessionController = {
-  getSession: async (req, res) => {
+  getList: async (req, res) => {
     try {
 
       const session = await Session.find();
 
-      res.json(session);
+      res.status(200).json(session);
+    } catch (e) {
+      return res.status(401).json("Ошибка" + e.message);
+    }
+  },
+  getSession: async (req, res) => {
+    const { _id } = req.params;
+    try {
+      const session = await Session.findById(_id).populate("hall");
+
+      res.status(200).json(session);
     } catch (e) {
       return res.status(401).json("Ошибка" + e.message);
     }
@@ -28,7 +38,7 @@ module.exports.sessionController = {
         hall: req.params.id,
         seats: row * column,
         row,
-        column
+        column,
       });
 
       await res.json(session);
