@@ -10,8 +10,11 @@ const bookSchema = mongoose.Schema({
     type: mongoose.SchemaTypes.ObjectId,
   },
   row: Number,
-  column: Number
+  col: Number,
+  
 });
+
+bookSchema.index({ session: 1, row: 1, col: 1}, { unique: true })
 
 const Book = mongoose.model("Book", bookSchema);
 

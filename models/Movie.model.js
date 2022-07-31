@@ -15,6 +15,7 @@ const movieSchema = mongoose.Schema({
     ref: "Genre",
     type: mongoose.SchemaTypes.ObjectId,
   }],
+  img_slider: String
 });
 
 const Movie = mongoose.model("Movie", movieSchema);
