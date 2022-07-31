@@ -11,10 +11,13 @@ const bookSchema = mongoose.Schema({
   },
   row: Number,
   col: Number,
-  
+  user: {
+    ref: "User",
+    type: mongoose.SchemaTypes.ObjectId,
+  },
 });
 
-bookSchema.index({ session: 1, row: 1, col: 1}, { unique: true })
+bookSchema.index({ session: 1, row: 1, col: 1 }, { unique: true });
 
 const Book = mongoose.model("Book", bookSchema);
 

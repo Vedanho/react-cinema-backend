@@ -72,13 +72,12 @@ module.exports.bookController = {
         session: element.id,
         row: element.row,
         col: element.col,
+        user: element.user,
       });
     });
 
     try {
       await Promise.all(adds);
-
-      
 
       res.json("aded");
     } catch (e) {
