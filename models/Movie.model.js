@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 const movieSchema = mongoose.Schema({
   name: String,
   description: String,
   length: String,
   limitation: Number,
-  country: String, 
+  country: String,
   img: String,
   rating: {
     type: Number,
@@ -18,6 +18,7 @@ const movieSchema = mongoose.Schema({
   img_slider: String
 });
 
-const Movie = mongoose.model("Movie", movieSchema);
 
-module.exports = Movie;
+const Movie = mongoose.model("Movie", movieSchema)
+
+module.exports = Movie

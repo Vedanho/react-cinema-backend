@@ -5,6 +5,7 @@ module.exports.movieControllers = {
     try {
       const { name, description, rating, genre,length,limitation,country, img, img_slider } = req.body;
 
+
       const movie = await Movie.create({
         name,
         description,
@@ -25,7 +26,6 @@ module.exports.movieControllers = {
   getMovies: async (req, res) => {
     try {
       const movies = await Movie.find()
-      console.log(movies)
       return res.json(movies)
     } catch (error) {
       return res.status(401).json(error.message)
