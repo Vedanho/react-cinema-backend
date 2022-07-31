@@ -21,7 +21,6 @@ module.exports.cinemaController = {
   getCinema: async (req, res) => {
     try {
       const cinema = await Cinema.find();
-      console.log(cinema);
       return res.json(cinema);
     } catch (error) {
       return res.status(401).json(error.message);

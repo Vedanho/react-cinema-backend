@@ -9,6 +9,7 @@ const movieSchema = mongoose.Schema({
   img: String,
   rating: Number,
   producer: String,
+  trailer: String,
   genre: [
     {
       ref: "Genre",

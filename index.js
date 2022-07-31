@@ -12,8 +12,6 @@ app.use(express.json())
 app.use(cors())
 app.use(cookieParser())
 
-app.use(errorMiddlewares)
-
 const bodyParser = require("body-parser")
 
 const mail = require("./mail.js")
@@ -42,6 +40,7 @@ app.use(require("./routes/Movie.route"))
 app.use(require("./routes/Book.route"))
 app.use(require("./routes/Session.route"))
 // app.use(require("./routes/Review.route"))
+app.use(errorMiddlewares)
 
 app.use("/images", express.static(path.resolve(__dirname, "images")))
 

@@ -3,7 +3,8 @@ const Movie = require("../models/Movie.model")
 module.exports.movieControllers = {
   createMovie: async (req, res) => {
     try {
-      const { name, description, rating, genre,length,limitation,country } = req.body;
+      const { name, description, rating, genre, length, limitation, country } =
+        req.body
 
       const movie = await Movie.create({
         name,
@@ -24,7 +25,6 @@ module.exports.movieControllers = {
   getMovies: async (req, res) => {
     try {
       const movies = await Movie.find()
-      console.log(movies)
       return res.json(movies)
     } catch (error) {
       return res.status(401).json(error.message)
